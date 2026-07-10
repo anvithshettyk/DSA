@@ -6,7 +6,7 @@ public:
      vector<int>ans(n);
       int k=n-1;
       int j=n-1;
-      while(j>=0 && i<n &&k>=0)
+      while(i<=j)
       {
         if(abs(nums[j])>abs(nums[i]))
         {
