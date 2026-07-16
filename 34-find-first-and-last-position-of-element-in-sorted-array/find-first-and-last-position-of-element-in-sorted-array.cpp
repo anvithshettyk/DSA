@@ -4,16 +4,42 @@ public:
         int n=nums.size();
         int low=0;
         int high=n-1;
-        int lb=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
-        int up=upper_bound(nums.begin(),nums.end(),target)-nums.begin();
-        if(lb==n||nums[lb]!=target)
+    
+        int first=-1;
+        int last=-1;
+        while(low<=high)
         {
-            return{-1,-1};
-        }
+            int mid=(low+high)/2;
+            if(nums[mid]==target)
+            {
+                first=mid;
+                high=mid-1;
+            }
+            else if(target<nums[mid])
+            high=mid-1;
         else
-        {
-            return {lb,up-1};
+        low=mid+1;
         }
+        low=0;
+        high=n-1;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(nums[mid]==target)
+            {
+                last=mid;
+                low=mid+1;
+            }
+            else if(target<nums[mid])
+            {
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return{first,last};
+
        
        
      }
