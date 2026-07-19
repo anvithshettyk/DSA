@@ -15,8 +15,8 @@ public:
             }
             else{
            
-                high=mid-1;
                 ans=min(ans,nums[mid]);
+                high=mid-1;
             }
         }
         return ans;
