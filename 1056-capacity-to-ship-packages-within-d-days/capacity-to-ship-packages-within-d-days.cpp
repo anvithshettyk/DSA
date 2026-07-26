@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    int func(vector<int>weights,int capacity)
+    int func(const vector<int>weights,int capacity)
     {
         int days=1,total=0;
         for(int i=0;i<weights.size();i++)
