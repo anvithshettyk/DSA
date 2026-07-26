@@ -19,19 +19,11 @@ public:
         return days;
     }
 
-    int highs(vector<int>weights)
-    {
-        int sum=0;
-
-        for(int i=0;i<weights.size();i++)
-        {
-            sum+=weights[i];
-        }
-        return sum;
-    }
+    
+    
     int shipWithinDays(vector<int>& weights, int days) {
         int low=*max_element(weights.begin(),weights.end());
-        int high=highs(weights);
+        int high=accumulate(weights.begin(),weights.end(),0);
         while(low<=high)
         {
             int mid=low+(high-low)/2;
