@@ -6,7 +6,8 @@ public:
          string ans="";
         for(int i=0;i<n;i++){
          string word="";
-       
+         while(i < n && s[i] == ' '){
+            i++;}
         
         while(i<n && s[i]!=' ')
             {
