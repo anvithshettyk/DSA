@@ -3,25 +3,29 @@ public:
 
     void solve(vector<int>& nums,int index,vector<int>&ds,vector<vector<int>>&result)
     {
-       
+       if(index==nums.size()){
             result.push_back(ds);
-        
-        for(int i=index;i<nums.size();i++)
-        {
-            if(i!=index&&nums[i]==nums[i-1])continue;
-            ds.push_back(nums[i]);
-             solve(nums, i+1,ds,result);
+            return;
+       }
+        ds.push_back(nums[index]);
+             solve(nums, index+1,ds,result);
              ds.pop_back();
-              
+            
+
+
+        int idx=index+1;
+        while(idx<nums.size() && nums[idx]==nums[idx-1])idx++;
+         solve(nums, idx,ds,result);
+    }
 
 
 
         
-        }
+        
          
        
 
-    }
+    
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<int>ds;
         vector<vector<int>>result;
